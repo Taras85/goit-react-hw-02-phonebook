@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
-// import s from '../ContactsForm/FormStyle.module.scss';
+import s from './ContactForm.module.css';
 
 export class ContactForm extends Component {
   state = {
@@ -36,8 +36,8 @@ export class ContactForm extends Component {
   render() {
     const { name, number } = this.state;
     return (
-      <>
-        <form onSubmit={this.handleSubmit}>
+
+        <form className={s.containerForms} onSubmit={this.handleSubmit} >
           <input
             
             placeholder="Name..."
@@ -64,7 +64,7 @@ export class ContactForm extends Component {
             Add contact
           </button>
         </form>
-      </>
+
     );
   }
 }

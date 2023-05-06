@@ -1,31 +1,32 @@
 import PropTypes from 'prop-types';
-// import { ContactItem } from './ContactItem';
-// import s from '../ContactList/ContactStyle.module.scss';
+import s from './ContactList.module.css'
+import { nanoid } from 'nanoid'
 
-export function ContactList({ contacts, onDeleteContact,}) {
-  console.log(contacts);
+
+
+
+export function ContactList({ contacts, onDeleteContact}) {
+
   return (
-    <ul >
+    <ul className={s.contactList}>
       {contacts.map(({id, name, number})=>(
-            <li >
-            <strong>{name}</strong>
+          <li key={nanoid()} className={s.contactItem}>
+            <span className={s.contactName} >{name}:</span>
             <span >{number}</span>
-            <button
-              
+            <button className={s.contactButton}
               type="button"
-              id={id}
+              id={nanoid()}
               onClick={() => onDeleteContact(id)}
             >
               Delete
             </button>
           </li>
       ))}
-     
     </ul>
   );
 }
 
-ContactList.prototype = {
+ContactList.propTypes = {
   contacts: PropTypes.array.isRequired,
   onDeleteContact: PropTypes.func.isRequired,
 };

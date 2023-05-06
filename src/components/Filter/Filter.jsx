@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
-// import s from '../Filter/Filter.module.scss';
+import s from './Filter.module.css';
 
 export function Filter({ value, onChangeFilter }) {
   return (
-    <div >
+    <div className={s.filterContainer}>
       <h3 >Find contacts by name</h3>
       <input
         
